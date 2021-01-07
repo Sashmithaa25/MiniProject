@@ -1,0 +1,71 @@
+
+
+
+<div class="col-lg">
+    <div class="businessunits">
+        <p>Choose Business unit(s) in scope</p>
+        <button id="addbusinessunits" (click)="open(business)" >Add Business Unit</button>
+    </div>
+
+
+<div class="container ">
+  <div class="row ">
+    <ul  class="listbunit " *ngFor="let bunit of bunitList" >
+      <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ...
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" (click)="open(business)" (click)="editBunit(bunit)" >Edit</a>
+        <a class="dropdown-item"  (click)="deleteBunit(bunit)" >Delete</a>
+      </div>
+      <li > 
+         <p class="unit">{{bunit.unit}} </p> 
+         <p>{{bunit.description}} </p>   
+       </li>
+    </ul>
+  </div>
+</div>
+
+
+
+<ng-template #business let-modal >
+    <div class="modal-header" >
+      <p class="heading">Add Business unit(s) in scope </p>
+      <button type="button" class=" closebtn " aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form    #businessunitform="ngForm" >
+    <div class="modal-body ">
+            <div class="row"> 
+                <div class="col-sm-12">
+                <div class="form-group">
+                  <label><h6>Business Unit Name</h6></label><span class="required">*</span><br/>
+                  <input class="form-control "  type="text"  id="unit" name="unit"   #unit="ngModel"  (change)="log(id)"  required    [(ngModel)]="businessObj.unit" />
+                  <div class="pop" *ngIf="unit.touched && !unit.valid">Enter Business Unit Name!!</div>  
+                </div>
+              </div></div>
+              <div class="row"> 
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <br/>
+                    <label><h6>Description</h6></label><span class="required">*</span><br/>
+                    <textarea   name="description" #description="ngModel" cols="60" rows="2" (change)="log(description)"  required class="form-control"    [(ngModel)]="businessObj.description"></textarea>
+                    <div class="pop" *ngIf="description.touched && !description.valid">Enter description</div>  
+                    </div>                
+              </div></div>
+              <div class="row">
+                <div class="col-sm-12">
+                 <div class=" form-group text-right">
+                    <button type="button"  data-dismiss="modal" [disabled]="!businessunitform.form.valid" class="btn btn-info" (click)="addBusinessUnit(businessunitform.value)" 
+                    *ngIf ="!isEdit" >Add</button>
+                  <button  data-dismiss="modal" class="btn btn-info" (click)="updateBunit()" 
+                  *ngIf ="isEdit">Update</button>
+                    <button class="btn btn-secondary" name="close" (click)="modal.dismiss()">Close</button>
+                    
+                  </div></div>
+             </div>    
+        </div>
+ </form>
+</ng-template>
+      

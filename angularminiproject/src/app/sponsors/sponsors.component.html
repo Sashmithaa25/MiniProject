@@ -1,0 +1,100 @@
+<div class="col-lg">
+    <div class="sponsors">
+        <p>Sponsors</p>
+        <button id="addbusinessunits" (click)="open(sponsors)" >Add Sponsors</button>
+    </div>
+
+
+   
+
+
+    <div class="container Overall">
+      <div class=" row   " ></div>
+      <div class="listsponsor" *ngIf="find()=='BU5'">
+    <ul *ngFor="let sponsor of sponsorList" >
+     
+       
+          <li> 
+          <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ...
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" (click)="open(sponsors)" (click)="editSponsor(sponsor)" >Edit</a>
+            <a class="dropdown-item"  (click)="deleteSponsor(sponsor)">Delete</a>
+          </div>  
+          
+             <p class="unit">{{sponsor.sname}} </p> 
+             <p>{{sponsor.semail}} </p>   
+           </li>
+        
+    </ul>
+  </div>  
+  </div>
+</div>
+  
+ 
+
+<ng-template #sponsors let-modal >
+    <div class="modal-header" >
+      <p class="heading">Add Sponsor details </p>
+      <button type="button" class=" closebtn " aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form  #sponsorform="ngForm" >
+    <div class="modal-body ">
+      <div class="row"> 
+        <div class="col-sm-12">
+            <div class="form-group">
+                        <label for="sponsorseg"><h6>Sponsor Segment</h6></label>
+                        <select class= " form-control "   name="bunit"  #bunit="ngModel"  (change)="log(bunit)"  required   [(ngModel)]="sponsorObj.bunit"  >
+                          <option value="Overall">Overall</option>
+                            <option value="BU1">BU1</option>
+                            <option value="BU2">BU2</option>
+                            <option value="BU3">BU3</option>
+                            <option value="BU4">BU4</option>
+                            <option value="BU5">BU5</option> 
+                        </select>
+                        <div class="pop" *ngIf="bunit.touched && !bunit.valid">Choose Sponsor Segment!!</div>  
+                    </div>                
+              </div></div>
+              <div class="row"> 
+                <div class="col-sm-6">
+                <div class="form-group">
+                  <label><h6>Sponsor Name</h6></label><span class="required">*</span>
+                  <input class="form-control "  name="sname" type="text" #sname="ngModel" (change)="log(sname)"  required    [(ngModel)]="sponsorObj.sname" /></div>
+                  <div class="pop" *ngIf="sname.touched && !sname.valid">Enter a Sponsor Name!!</div>  
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group">
+                  <label ><h6>Email</h6></label><span class="required">*</span>
+                  <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"   name="semail" type="email" #semail="ngModel" (change)="log(semail)"  required  class="form-control "   [(ngModel)]="sponsorObj.semail" />  
+                  <div class ="pop" *ngIf="semail.touched">
+                    <p *ngIf="semail.errors?.required">Email is required!</p>
+                    <p *ngIf="semail.errors?.pattern">Invalid Email!!!</p>
+                   </div> 
+              </div>
+                </div></div>
+                <div class="row"> 
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <br/>
+                      <label><h6>Sponsors Expectations</h6></label><span class="required">*</span><br/>
+                      <textarea   name="desp" #desp="ngModel"  cols="60" rows="2" (change)="log(desp)"  required class="form-control "   [(ngModel)]="sponsorObj.desp"></textarea>
+                      <div class="pop" *ngIf="desp.touched && !desp.valid">Sponsors Expectations are required!!</div>
+                    </div>                
+                </div></div>
+              <div class="row">
+                <div class="col-sm-12">
+                 <div class=" form-group text-right">
+                  <button type="button" data-dismiss="modal" [disabled]="!sponsorform.form.valid" class="btn btn-info" (click)="addSponsor(sponsorform.value)" 
+                  *ngIf ="!isEdit" >Add</button>
+                <button  data-dismiss="modal" class="btn btn-info" (click)="updateSponsor()" 
+                *ngIf ="isEdit">Update</button>
+                    <button class="btn btn-secondary" name="close" (click)="modal.dismiss()">Close</button>
+                    
+                  </div></div>
+             </div>    
+        </div>
+ </form>
+</ng-template>

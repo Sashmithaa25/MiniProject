@@ -1,0 +1,193 @@
+.col-lg{
+    float:right;
+    margin-right:50px;
+  }
+.modal-header{
+    border: none;
+    margin-bottom:-1.5em;
+}
+
+.sponsors{
+    overflow: hidden;
+   
+}
+.sponsors p{
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 10px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.sponsors button{
+    float: right;
+    padding: 6px 20px;
+    background: white;
+    outline: none;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 2px solid rgba(19, 104, 216, 0.747);
+    border-radius: 25px;
+    cursor: pointer;
+   
+}
+.sponsors button:hover{
+    background-color: rgb(52, 94, 211);
+    color: #fff;
+}
+
+.Overall{
+    background-color: rgb(245, 250, 255);
+    border-radius: 25px;
+}
+.Overall .overall{
+    padding-top: 10px;
+    font-weight: bolder;
+
+}
+.listsponsor{
+    width: 240px;
+    height: 90px;
+    background-color:white;
+    text-align:left;
+    cursor:pointer;
+     margin:2px 7px 20px 1px; 
+    text-decoration: none;
+    box-shadow: 3px  3px rgb(218, 218, 218);
+    border: none;
+    outline: none;
+   
+}
+
+.listsponsor .unit{
+   
+    font-size: small;
+    font-weight: bold;
+}
+.listsponsor:hover{
+
+ border:  2px solid rgba(19, 104, 216, 0.747);;
+
+}
+.listsponsor button{
+ outline: none;
+ margin:0px;
+ border: none;
+ color: #000;
+ font-size: 20px;
+ font-weight: bold;
+ text-decoration: none;
+ background-color: white;
+}
+
+
+.dropdown-toggle{
+ float:right;
+}
+
+
+.dropdown-toggle::after { 
+ content: none;
+}
+
+
+
+.dropdown-menu{
+ background-color:white;
+ min-width: 0;
+}
+
+.listsponsor li{
+    list-style-type: none;
+}
+
+.heading{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+
+.modal-body{
+    padding-right: 10px;
+    padding-left: 10x;
+    padding-top: 10px;
+    padding-bottom: 20px;
+   
+}
+
+.modal-body #id{
+    width: 40%;
+    padding: 3px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: groove;
+}
+
+.modal-body #sname,#semail{
+    width: 100%;
+    padding:3px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    outline: none;
+  
+}
+
+.modal-body #desp{
+    width: 100%;
+    padding: 3px;
+    border: groove;
+    border-radius:10px;
+    outline: none;
+}
+
+
+ .text-right{
+   margin-top: 20px;
+   margin-bottom: 10px;
+   padding-bottom: 30px;
+   
+}
+.text-right button{
+    padding: 5px 40px ;
+    float:right;
+    background: white;
+    color: #000;
+    font-size: 10px;
+    font-weight:bold;
+    border: 2px solid rgba(19, 104, 216, 0.747);
+    border-radius: 25px;
+    cursor: pointer;
+  
+}
+
+.closebtn{
+    outline: none;
+    font-size: 30px;
+    float: right;
+    font-weight: 900px;
+    border: none;
+    color: #000;
+    background-color: white;
+    text-decoration: none;
+ }
+ 
+  .required{
+    color: red;
+  }
+  .pop{color: red;
+  }
+  .modal-body .form-control.ng-touched.ng-invalid  {
+    border: 1px solid red;
+  }
+  .modal-body button:hover{
+    background-color: rgb(52, 94, 211);
+    color: #fff;
+  }
+  
+  

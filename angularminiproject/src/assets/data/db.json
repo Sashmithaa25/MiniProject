@@ -1,0 +1,142 @@
+{
+  "clients": [
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "90XXXXXX32",
+      "name": "Navya_test",
+      "industry": "Education",
+      "subindustry": "Education",
+      "market": "market2",
+      "marketunit": 1,
+      "description": "dasskjkndcs ak",
+      "id": 1
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "00XXXXXX44",
+      "name": "32434",
+      "upload": "",
+      "industry": "Commerce",
+      "subindustry": "Automobile",
+      "market": "market1",
+      "marketunit": "5",
+      "description": "kasd kla",
+      "id": 2
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "7897439053",
+      "name": "testKTClient",
+      "upload": "",
+      "industry": "Education",
+      "subindustry": "Automobile",
+      "market": "market2",
+      "marketunit": "3",
+      "description": "df",
+      "id": 3
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "0123456789",
+      "name": "test_20",
+      "industry": "Education",
+      "subindustry": "Automobile",
+      "market": "market3",
+      "marketunit": "3",
+      "description": "sfdk ksd",
+      "id": 4
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "17XXXXXX35",
+      "name": "teat_15",
+      "industry": "Education",
+      "subindustry": "Finance",
+      "market": "market2",
+      "marketunit": "4",
+      "description": "Client teat_17",
+      "id": 5
+    },
+    {
+      "idtype": "Contract ID",
+      "idnum": "6834328432",
+      "name": "290433",
+      "industry": "Automobile",
+      "subindustry": "Automobile",
+      "market": "market3",
+      "marketunit": "4",
+      "description": "Client 290345",
+      "id": 6
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "34XXXXXX90",
+      "name": "Navya_18",
+      "industry": "Education",
+      "subindustry": "Education",
+      "market": "market4",
+      "marketunit": "2",
+      "description": "Navya18",
+      "id": 8
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "34XXXXXX90",
+      "name": "32434",
+      "upload": "C:\\fakepath\\building.png",
+      "industry": "Education",
+      "subindustry": "Automobile",
+      "market": "market1",
+      "marketunit": "3",
+      "description": "lk",
+      "id": 9
+    },
+    {
+      "idtype": "Opportunity ID",
+      "idnum": "90XXXXXX32",
+      "name": "testKTClient",
+      "upload": "C:\\fakepath\\building.png",
+      "industry": "Commerce",
+      "subindustry": "Finance",
+      "market": "market2",
+      "marketunit": "3",
+      "description": "fdg",
+      "id": 10
+    }
+  ],
+  "businessunits": [
+    {
+      "unit": "BU1",
+      "description": "test14",
+      "id": 1
+    },
+    {
+      "unit": "BU2",
+      "description": "test456",
+      "id": 2
+    }
+  ],
+  "sponsors": [
+    {
+      "bunit": "BU5",
+      "sname": "test_89",
+      "semail": "sashmithaa@gmail.com",
+      "desp": "dsfd",
+      "id": 3
+    },
+    {
+      "bunit": "BU1",
+      "sname": "test567",
+      "semail": "sns@gmail.com",
+      "desp": "jnmb,",
+      "id": 5
+    },
+    {
+      "bunit": "BU5",
+      "sname": "test_89",
+      "semail": "bhjdfdsk@gmail.com",
+      "desp": "kjk",
+      "id": 6
+    }
+  ]
+}

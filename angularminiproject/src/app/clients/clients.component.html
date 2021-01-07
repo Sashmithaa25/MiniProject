@@ -1,0 +1,187 @@
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ 
+</head>
+<div class="col-md">
+    <!-- Add Client Details-->
+     <div class="topnav">
+       <p> Add or choose an existing client</p>
+       
+       <nav class="navbar">
+        
+         <input class="form-control" type="text" name="name" [(ngModel)]="name" (ngModelChange)="Search()"
+          placeholder="Search By Client Name...." >
+       </nav>
+     
+      </div>
+     
+      <div class="container ">
+        <div class="row">
+          <button class="btnclient" (click)="open(content)"  > 
+            <p class="addplus">+</p>
+            <p>Add Client</p>
+          </button>
+         
+         <ul  class="listclient " *ngFor="let client of clientList | paginate: {itemsPerPage: 7,currentPage: page }" >
+        
+            <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" (click)="open(content)" (click)="editClient(client)" >Edit</a>
+              <a class="dropdown-item" (click)="deleteClient(client)" >Delete</a>
+            </div>
+          <li > 
+           <img src='{{client.upload}}'><br/>
+            {{client.name}}
+            <hr>
+              <tr> <td class="idtype">{{client.idtype}} </td></tr>
+              <tr><td  class="num">{{client.idnum}}</td>  </tr>
+             
+          </li>
+          </ul>  
+          
+        </div>
+        <pagination-controls  class="mypagination" (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div>
+    
+     </div>
+     
+      <ng-template #content let-modal>
+         <div class="modal"></div>
+        <div class="modal-header" style='border: none;'>
+          <p class="heading">Add Client Details</p>
+          <button type="button" class=" closebtn "   aria-label="Close" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      
+        <form  #clientform="ngForm" >
+        <div class="modal-body ">
+         <div class="form-group">
+          <input type="radio" name="idtype" #idtype="ngModel" value="Opportunity ID" required class=" ng-touched ng-invalid"  [(ngModel)]="clientObj.idtype" />Opportunity ID
+          <input type="radio" name="idtype"  #idtype="ngModel" value="Contract ID" required class=" ng-touched ng-invalid" [(ngModel)]="clientObj.idtype"/>Contract ID
+         </div>
+          
+          <div class="form-group">
+            <input  maxlength="10"  type="text"  name="idnum" #idnum="ngModel" (change)="log(idnum)"  required class="form-control" [(ngModel)]="clientObj.idnum"/>
+            <button  id="validate">Validate</button>
+            <div class="pop" *ngIf="idnum.touched && !idnum.valid">Enter any 10 digit number to proceed!!</div>  
+          </div>
+      
+      
+          <div class="row"> 
+            
+            <div class="col-sm-6">
+            <div class="form-group ">
+            <label><h6>Client Name</h6></label> <br/>
+            <input  type="text"   name="name"  #name="ngModel"  (change)="log(name)"  required class="form-control "    [(ngModel)]="clientObj.name"/>
+            <div class="pop" *ngIf="name.touched && !name.valid">Enter Client Name!!</div>  
+            </div></div>
+      
+            <div class="col-sm-6">
+            <div class="form-group">
+              <input type="file" id="upload"  name="upload" accept="image/*"   [(ngModel)]="clientObj.upload"/><br/>
+              <label class="chooselogo" for="upload">Upload Logo</label>
+            </div></div>
+          
+           </div>
+      
+            <div class="row"> 
+      
+              <div class="col-sm-6">
+              <div class="form-group">
+                <label for="industype"><h6>Industry Type</h6></label><span class="required">*</span>
+                <select class="form-control"  id="industype" name="industry" #industry = "ngModel" (change)="log(industry)" required  [(ngModel)]="clientObj.industry">
+                    <option  value="Select">--Select--</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Commerce">Commerce</option>
+                    <option value="Education">Education</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Finance">Finance</option> 
+                </select>
+                <div class="pop" *ngIf="industry.touched && !industry.valid">Choose a Industry Type</div>
+                </div> </div>
+      
+              <div class="col-sm-6">
+              <div class="form-group">
+                <label for="subtype"><h6>Sub-Industry</h6></label><span class="required">*</span>
+                <select class="form-control" id="subtype" name="subindustry"  #subindustry = "ngModel" (change)="log(subindustry)"required   [(ngModel)]="clientObj.subindustry">
+                    <option  value="Select">--Select--</option>
+                    <option value="Education">Education</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Finance">Finance</option> 
+                    <option value="Commerce">Commerce</option>   
+                    <option value="Technology">Technology</option>  
+                </select>
+                <div class="pop" *ngIf="subindustry.touched && !subindustry.valid">Choose a Sub-Industry Type</div>
+              </div></div>
+      
+              </div>
+      
+              <div class="row"> 
+      
+                <div class="col-sm-6">
+                <div class="form-group">
+                 <label for="market"><h6>Market</h6></label><span class="required">*</span>
+                 <select class="form-control" id="market" name="market" #market="ngModel"  (change)="log(market)"required  [(ngModel)]="clientObj.market">
+                  <option value="select">--Select--</option>
+                  <option value="market1">market1</option>
+                  <option value="market2">market2</option>
+                  <option value="market3">market3</option>
+                  <option value="market4">market4</option>
+                 </select>
+                 <div class="pop" *ngIf="market.touched && !market.valid">Choose a Market</div>
+                </div></div>
+      
+                <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="market"><h6>Market Units</h6></label><span class="required">*</span>
+                  <select class="form-control" id="marketunits" name="marketunit" #marketunit="ngModel"  (change)="log(marketunit)"required  [(ngModel)]="clientObj.marketunit">
+                    <option value="select">--Select--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <div class="pop" *ngIf="marketunit.touched && !marketunit.valid">Choose a Market Unit</div>
+                  </div></div>
+               
+               </div>
+      
+                <div class="row"> 
+      
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                    <label>Description</label><span class="required">*</span><br/>
+                    <textarea name="description" cols="30" rows="3" required class="form-control"  [(ngModel)]="clientObj.description"></textarea>
+                  </div> </div>
+      
+                </div>
+      
+                  <div class="row">
+      
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                       <p>If you don't have an active Opportunity/Contract ID connect
+                          with <a href="#">LB advisory Team</a></p>
+                        </div> </div>
+      
+                    <div class="col-sm-6">
+                     <div class=" form-group text-right">
+                      <button  data-dismiss="modal" [disabled]="!clientform.form.valid" class="btn btn-info" (click)="addClients(clientform.value)" 
+                      *ngIf ="!isEdit">Add</button>
+                      <button  data-dismiss="modal" class="btn btn-info" (click)="updateClient()" 
+                      *ngIf ="isEdit">Update</button>
+                      <button class="btn btn-secondary" name="close" (click)="modal.dismiss()">Close</button>  
+                    </div></div>
+      
+                    </div>
+      
+                    </div>
+               </form>
+      </ng-template>
+      
+    
